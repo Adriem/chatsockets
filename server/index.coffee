@@ -4,38 +4,39 @@
 #  connection.
 # ==============================================================================
 
-### DEPENDENCIES ###
-# ------------------------------------------------------------------------------
 express  = require 'express'         # Route management framework
 morgan   = require 'morgan'          # Log requests to the console
-parser   = require 'body-parser'     # Pull information from POST
-override = require 'method-override' # Simulate DELETE and PUT
-mongoose = require 'mongoose'        # MongoDB driver
+http     = require 'http'            # Node HTTP library
+socketIO = require 'socket.io'       # WebSocket library
 
-config = require './config' # Configuration file
+config     = require './config'                       # Configuration file
+routes     = require './controller/routes'            # Application routes
+socketCtrl = require './controller/socket-controller' # Application routes
 
 # START/STOP SERVER FUNCTIONS
 # ------------------------------------------------------------------------------
-server = null
+serverInstance = null  # Server instance
+
 start = (environment, port) ->
-  # Configure express middleware (order does matter)
+  # Express configuration (order does matter)
   router = express()
+  router.use morgan('dev') if environment isnt 'test'
   router
     .use express.static(__dirname + '/public')
-    .use morgan('dev') if environment isnt 'test'
-    # .use parser.urlencoded({'extended':'false'})
-    # .use parser.json({ type: 'application/vnd.api+json' })
-    # .use override()
-  # Set front-end routes
-  router.get '*', (req, res) ->
-    res.sendFile('index.html', {'root': 'public/dist'})
-  # Connect to database and start listening
-  mongoose.connect(config.database)
-  server = router.listen(port)
+    .use routes
+  # Start server
+  server = http.Server(router)          # Create server
+  io = socketIO(server)                 # Run socket.io
+  serverInstance = server.listen(port)  # Start listening
+  # Socket.io configuration
+  # io.on 'connection', (socket) ->
+    # socket.emit('news', { hello: 'world' })
+    # socket.on 'other event', (data) ->
+      # console.log(data)
+  socketCtrl.configure(io)
 
 close = ->
-  server.close()
-  mongoose.connection.close()
+  serverInstance.close()
 
 ### MODULE EXPORTS ###
 # ------------------------------------------------------------------------------
