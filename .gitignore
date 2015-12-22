@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Application secrets
+/**/config.coffee
+/**/config.js
+
+# Dist files
+public/dist/
+
+# Unused files
+*.unused
+
+# Vim files
+*.swp
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

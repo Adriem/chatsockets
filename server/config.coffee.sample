@@ -1,0 +1,18 @@
+# ==============================================================================
+#  This file defines the configuration properties for the backend. Note that
+#  different execution environments can have different properties.
+# ------------------------------------------------------------------------------
+#  This is a sample file. In order to run the project you must provide a file
+#  like this one without its '.sample' extension. This file contains dummy
+#  values; DO NOT use them on a real project.
+# ==============================================================================
+
+switch(process.env.NODE_ENV)
+  when 'test' then configuration =
+    database : 'mongodb : //localhost/chatsockets'
+    secret   : 'S3cr3t'
+  else configuration =
+    database : 'mongodb : //localhost/chatsockets-test'
+    secret   : 'T3st S3cr3t'
+
+module.exports = configuration
