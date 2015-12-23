@@ -5,18 +5,16 @@
 # ==============================================================================
 
 http     = require 'http'            # Node HTTP library
-socketIO = require 'socket.io'       # WebSocket library
 
-config     = require './config'                        # Configuration file
-router     = require './controller/router'             # Route manager middleware
-socketCtrl = require './controller/socket-controller'  # Application routes
+config  = require './config'              # Configuration file
+router  = require './controller/router'   # Route manager middleware
+sockets = require './controller/sockets'  # socket.io manager
 
 serverInstance = null  # Keep server instance in order to be able to close it later
 
 start = (environment, port) ->
-  server = http.Server(router)          # Create server
-  io = socketIO(server)                 # Run socket.io
-  socketCtrl.configure(io)              # Configure socket.io
+  server         = http.Server(router)  # Create server
+  io             = sockets(server)      # Run socket.io
   serverInstance = server.listen(port)  # Start listening
 
 close = ->
