@@ -1,6 +1,6 @@
 # ==============================================================================
 #  This file defines the handler for the WebSockets protocol through socket.io
-#  library. Note that socket.io must be started and provided outside this module
+#  library.
 # ==============================================================================
 
 socketIO = require 'socket.io'       # WebSocket library
