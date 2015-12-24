@@ -1,0 +1,139 @@
+@sidebarColor: #20262D;
+@borderColor: #ddd;
+@bgColor: #FFFFFF;
+
+
+// Header dimmensions
+@headerHeight-lg: 72px;
+@headerFont-lg: 26pt;
+
+// Input box dimmensions
+@messageBoxHeight: 64px;
+@marginBottom: 24px;
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#wrapper { }
+#page-content-wrapper {
+    padding: 0;
+}
+
+#sidebar-brand {
+    font-size: @headerFont-lg;
+}
+
+#main-container {
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    /* background-color: @bgColor; [> debug <] */
+    .wrapper {
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0 0 0 10px;
+        padding: 0;
+    }
+    #chat-container {
+        position: absolute;
+        top: @headerHeight-lg;
+        bottom: @messageBoxHeight + @marginBottom + @marginBottom;
+        border-top: 1px solid @borderColor;
+        margin: 0;
+        width: 100%;
+        overflow: auto;
+        padding: 0 10px;
+        span {
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            margin: 10px 0 0 0;
+            padding: 15px;
+            background-color: #eaebff;
+        }
+        .own-message {
+            background-color: #eaffeb;
+        }
+    }
+    #input-container {
+        position: absolute;
+        width: 100%;
+        height: @messageBoxHeight;
+        bottom: @marginBottom;
+        padding: 0 0 0 10px;
+        input {
+            height: @messageBoxHeight;
+            border-radius: 0;
+            border-color: @borderColor;
+            border-right: none;
+        }
+        button {
+            height: @messageBoxHeight;
+            border-radius: 0;
+            border: 1px solid #844 !important;
+            margin: 0;
+            z-index: 1;
+        }
+    }
+}
+
+.title {
+    height: @headerHeight-lg;
+    padding-top: 12px;
+    background-color: @bgColor;
+    border: none;
+    * { font-size: @headerFont-lg; }
+    .navbar-right {
+        font-size: 14pt;
+    }
+}
+#sidebar-wrapper {
+    background-color: @sidebarColor;
+    /* .nav-section { */
+        /* text-indent: 0 !important; */
+        /* text-align: center !important; */
+    /* } */
+    i {
+        text-indent: 0 !important;
+        margin-right: 5px !important;
+        &.fa-github, &.fa-info-circle, &.fa-code {
+            font-size: 12pt;
+        }
+    }
+    * { color: #b9bbc0; }
+    .sidebar-brand {
+        height: @headerHeight-lg !important;
+        padding-top: 9px;
+        border: none;
+        a, span {
+            color: #b9bbc0;
+            font-size: @headerFont-lg;
+        }
+    }
+    .sidebar-separator {
+        /* margin-top: 15px; */
+        padding-top: 20px;
+        padding-bottom: 5px;
+        /* border-bottom: 1px solid #b9bbc0; */
+        border-bottom: 1px solid #595b60;
+        line-height: 1.5 !important;
+        span {
+            color: #595b60;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+    }
+    .sidebar-btn {
+        width: 100%;
+        * {
+            color: #595b60;
+            &:hover , &:hover i {
+                color: #ccd;
+                background-color: @sidebarColor;
+            }
+        }
+    }
+}
+

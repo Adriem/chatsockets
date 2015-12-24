@@ -9,7 +9,9 @@ var util    = require('gulp-util');
 var inject  = require('gulp-inject');
 var maps    = require('gulp-sourcemaps');
 var rename  = require('gulp-rename');
-var open    = require('gulp-open');
+// var open    = require('gulp-open');
+var path    = require("path");
+var less    = require("gulp-less");
 
 gulp.task('img', function(){
     return gulp.src('./public/src/img/*')
@@ -17,15 +19,20 @@ gulp.task('img', function(){
 });
 
 gulp.task('clean-css', function (cb) {
-    del(['./public/dist/**/*.css'], cb);
+    del(["./public/dist/**/*.css"], cb);
 });
-gulp.task('css', ['clean-css'], function(){
-    return gulp.src('./public/src/**/*.css')
+gulp.task("less", ["clean-css"], function() {
+    return gulp.src("./public/src/**/*.less")
+        .pipe(less({ paths: [ path.join(__dirname, 'public/src') ] }))
         .pipe(cssmin())
-        .pipe(rename({
-            extname: '.min.css'
-        }))
-        .pipe(gulp.dest('./public/dist/'))
+        .pipe(rename({ extname: ".min.css" }))
+        .pipe(gulp.dest("./public/dist/"));
+});
+gulp.task("css", ["clean-css"], function(){
+    return gulp.src("./public/src/**/*.css")
+        .pipe(cssmin())
+        .pipe(rename({ extname: ".min.css" }))
+        .pipe(gulp.dest("./public/dist/"))
 });
 
 gulp.task('clean-js', function (cb) {
@@ -50,7 +57,7 @@ gulp.task('move-html', ['clean-html'], function(){
     return gulp.src('public/src/**/*.html')
         .pipe(gulp.dest('./public/dist/'))
 });
-gulp.task('build', ['move-html', 'img', 'css', 'coffee'], function(){
+gulp.task('build', ['move-html', 'img', 'css', 'less', 'coffee'], function(){
     var importantSources = gulp.src(['./public/dist/app.min.js'], {read: false});
     var sources = gulp.src([
       '!./public/dist/app.min.js',
