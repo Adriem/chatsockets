@@ -53,7 +53,7 @@
                 </a></li>
 
                 <li class="sidebar-separator"><span>Active rooms</span></li>
-                <li><a href="#">AngularJS</a></li>
+                <li><a href="#">AngularJS<span class="badge">23</span></a></li>
                 <li><a href="#">socket.io</a></li>
                 <li><a href="#">node.js</a></li>
                 <li><a href="#">Star Wars</a></li>
@@ -62,25 +62,32 @@
                 </li>
 
                 <li class="sidebar-separator"><span>Online users</span></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Shortcuts</a></li>
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a> </li>
-                <li><a href="#">Contact</a> </li>
+                <li><span>Dashboard</span></li>
+                <li><span>Shortcuts</span></li>
+                <li><span>Overview</span></li>
+                <li><span>Events</span></li>
+                <li><span>About</span></li>
+                <li><span>Services</span></li>
+                <li><span>Contact</span></li>
             </ul>
         </div>
 
         <div id="page-content-wrapper">
             <div id="main-container" class="container-fluid">
-                <div class="wrapper col-xs-11 col-sm-10 col-md-9 col-lg-8">
+                <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
                 <!-- <div class="row"> -->
                     <!-- <h3>Dashboard</h3> -->
                 <!-- </div> -->
                     <div class="navbar navbar-default title">
-                        <div class="navbar-brand">@socket.io</div>
-                        <div class="navbar-right">Leave room</div>
+                        <div class="navbar-brand">
+                            <span class="hidden-xs">Messages </span>@socket.io
+                        </div>
+                        <div class="navbar-right">
+                            <a href="#" class="navbar-link hidden-xs">Leave room</a>
+                            <a href="#" class="navbar-link visible-xs text-right">
+                                <i class="fa fa-eye-slash"></i>
+                            </a>
+                        </div>
                     </div>
                     <div id="chat-container">
                         <span>

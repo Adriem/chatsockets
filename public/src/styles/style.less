@@ -85,12 +85,14 @@ html, body {
     background-color: @bgColor;
     border: none;
     * { font-size: @headerFont-lg; }
-    .navbar-right {
-        font-size: 14pt;
+    .navbar-link {
+        font-size: 12pt;
+        padding: 6px;
     }
 }
 #sidebar-wrapper {
     background-color: @sidebarColor;
+    overflow-x: hidden;
     /* .nav-section { */
         /* text-indent: 0 !important; */
         /* text-align: center !important; */
@@ -101,6 +103,11 @@ html, body {
         &.fa-github, &.fa-info-circle, &.fa-code {
             font-size: 12pt;
         }
+    }
+    .badge {
+        text-indent: 0 !important;
+        margin-left: 5px !important;
+        background-color: #AA4f4f;
     }
     * { color: #b9bbc0; }
     .sidebar-brand {
