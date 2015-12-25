@@ -20,22 +20,13 @@
 
     <!-- LIBRARY SCRIPTS -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> -->
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io.connect('http://localhost:3000');
-        socket.on('news', function (data) {
-            console.log(data);
-            socket.emit('other event', { my: 'data' });
-        });
-    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
-<body ng-app="AgnosticBookmarks">
+<body ng-app="ChatSockets" ng-controller="mainController">
 
-    <!-- <nav id="title" class="navbar navbar-fixed-top navbar-default"> -->
-        <!-- <div class="container"> <h1>ChatSockets by Adriem</h1> </div> -->
  <div id="wrapper">
 
         <div id="sidebar-wrapper">
