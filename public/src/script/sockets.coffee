@@ -9,7 +9,7 @@ module = angular.module 'ChatSockets'  # Retrieve module
 module.factory 'Socket', ($rootScope) ->
 
   # Connect to socket.io when loaded
-  socket = io.connect("http://localhost:3000")
+  socket = io.connect()
 
   # Subscribe to a socket.io event and update $rootScope when
   # that event is received

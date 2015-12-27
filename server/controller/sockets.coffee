@@ -12,7 +12,6 @@ messages = []
 configure = (server) ->
 
   # Launch socket.io and set up to call disconnect event on browser unload
-  # io = socketIO(server, { 'sync disconnect on unload': true })
   io = socketIO(server)
 
   io.on 'connection', (socket) ->

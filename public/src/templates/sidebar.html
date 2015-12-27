@@ -3,17 +3,16 @@
     <li class="sidebar-brand"><span>ChatSockets</span></li>
 
     <li class="nav-section"><a ui-sref="about">
-        <i class="fa fa-info-circle"></i> About
+        <i class="fa fa-fw fa-info-circle"></i> About
     </a></li>
 
     <li class="nav-section"><a target="_blank"
             href="https://github.com/Adriem/chatsockets">
-        <i class="fa fa-code"></i> Code
+        <i class="fa fa-fw fa-code"></i> Code
     </a></li>
 
-    <li class="nav-section"><a target="_blank"
-            href="http://adriem.noip.me">
-        <i class="fa fa-ellipsis-h"></i> More projects
+    <li class="nav-section"><a target="_blank" href="http://adriem.noip.me">
+        <i class="fa fa-fw fa-ellipsis-h"></i> More projects
     </a></li>
 
     <!-- ROOM LIST -->
@@ -36,7 +35,7 @@
     <li class="sidebar-separator"><span>Online users</span></li>
     <li ng-repeat="user in chat.onlineUsers"><span>{{ user }}</span></li>
     <li class="nickname-notice"><span>
-        You are logged as {{ chat.username }}. Reload the page
-        to change your nickname.
+        You are logged as: <br><span class="username">{{ chat.username }}</span>
+        <br> Reload the page to change your nickname.
     </span></li>
 </ul>
