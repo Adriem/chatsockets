@@ -1,0 +1,31 @@
+<div id="main-container" class="container-fluid">
+    <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
+        <div class="navbar navbar-default title">
+            <div class="navbar-brand">
+                <span class="hidden-xs">Messages </span>
+                @{{ roomList[activeRoom].name }}
+            </div>
+            <div class="navbar-right">
+                <a href="#" class="navbar-link hidden-xs">Leave room</a>
+                <a href="#" class="navbar-link visible-xs text-right">
+                    <i class="fa fa-eye-slash"></i>
+                </a>
+            </div>
+        </div>
+        <div id="chat-container">
+            <span ng-repeat="message in roomList[activeRoom].messages">
+                <strong>{{ message.author }} said:</strong><br>
+                {{ message.body }}
+            </span>
+        </div>
+        <div id="input-container">
+            <div class="input-group">
+                <input type="text" class="form-control"
+                        placeholder="Type a message...">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger"
+                            type="button">Send!</button>
+                </span>
+            </div>
+        </div>
+</div></div>

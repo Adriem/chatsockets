@@ -11,6 +11,12 @@ configure = (server) ->
     socket.emit('news', { hello: 'world' })
     socket.on 'other event', (data) ->
       console.log(data)
+    setInterval(() ->
+      socket.emit('MESSAGE_RECEIVED', {
+        author: "Timer"
+        body: "Dummy"
+      })
+    , 1000)
   return io
 
 module.exports = configure

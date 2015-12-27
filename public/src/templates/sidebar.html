@@ -1,0 +1,37 @@
+<ul class="sidebar-nav">
+
+    <li class="sidebar-brand"><span>ChatSockets</span></li>
+
+    <li class="nav-section"><a ui-sref="about">
+        <i class="fa fa-info-circle"></i> About
+    </a></li>
+
+    <li class="nav-section"><a target="_blank"
+            href="https://github.com/Adriem/chatsockets">
+        <i class="fa fa-code"></i> Code
+    </a></li>
+
+    <li class="nav-section"><a target="_blank"
+            href="http://adriem.noip.me">
+        <i class="fa fa-ellipsis-h"></i> More projects
+    </a></li>
+
+    <!-- ROOM LIST -->
+    <li class="sidebar-separator"><span>Active rooms</span></li>
+
+    <li ng-repeat="room in roomList track by $index">
+        <a ng-click="changeRoom($index)">{{ room.name }}
+            <span ng-if="room.unreads" class="badge">
+                {{ room.unreads }}
+            </span>
+        </a>
+    </li>
+
+    <li class="sidebar-btn">
+        <a href="#"><i class="fa fa-plus-circle"></i> New room</a>
+    </li>
+
+    <!-- ONLINE USERS -->
+    <li class="sidebar-separator"><span>Online users</span></li>
+    <li ng-repeat="user in onlineUsers"><span>{{ user }}</span></li>
+</ul>

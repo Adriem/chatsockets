@@ -12,7 +12,6 @@
     <!-- LIBRARY STYLES -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css"> -->
 
     <!-- OWN STYLES -->
     <!-- inject:css -->
@@ -21,139 +20,20 @@
     <!-- LIBRARY SCRIPTS -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="ChatSockets" ng-controller="mainController">
 
- <div id="wrapper">
+    <div id="wrapper">
 
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><span>ChatSockets</span></li>
-
-                <li class="nav-section"><a href="#">
-                    <i class="fa fa-info-circle"></i> About
-                </a></li>
-                <li class="nav-section"><a href="#">
-                    <i class="fa fa-code"></i> Code
-                </a></li>
-                <li class="nav-section"><a href="http://adriem.noip.me">
-                    <i class="fa fa-ellipsis-h"></i> More projects
-                </a></li>
-
-                <li class="sidebar-separator"><span>Active rooms</span></li>
-                <li><a href="#">AngularJS<span class="badge">23</span></a></li>
-                <li><a href="#">socket.io</a></li>
-                <li><a href="#">node.js</a></li>
-                <li><a href="#">Star Wars</a></li>
-                <li class="sidebar-btn">
-                    <a href="#"><i class="fa fa-plus-circle"></i> New room</a>
-                </li>
-
-                <li class="sidebar-separator"><span>Online users</span></li>
-                <li><span>Dashboard</span></li>
-                <li><span>Shortcuts</span></li>
-                <li><span>Overview</span></li>
-                <li><span>Events</span></li>
-                <li><span>About</span></li>
-                <li><span>Services</span></li>
-                <li><span>Contact</span></li>
-            </ul>
+            <sidebar></sidebar>
         </div>
 
         <div id="page-content-wrapper">
-            <div id="main-container" class="container-fluid">
-                <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
-                <!-- <div class="row"> -->
-                    <!-- <h3>Dashboard</h3> -->
-                <!-- </div> -->
-                    <div class="navbar navbar-default title">
-                        <div class="navbar-brand">
-                            <span class="hidden-xs">Messages </span>@socket.io
-                        </div>
-                        <div class="navbar-right">
-                            <a href="#" class="navbar-link hidden-xs">Leave room</a>
-                            <a href="#" class="navbar-link visible-xs text-right">
-                                <i class="fa fa-eye-slash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="chat-container">
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span class="own-message">
-                            <strong>You said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                        <span>
-                            <strong>John-Doe said:</strong><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aspernatur mollitia maxime facere quae cumque.
-                        </span>
-                    </div>
-                    <div id="input-container">
-                        <div class="input-group">
-                            <input type="text" class="form-control"
-                                    placeholder="Type a message...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-danger"
-                                        type="button">Send!</button>
-                            </span>
-                        </div>
-                    </div>
-                <!-- <ui-view></ui-view> -->
-            </div></div>
+            <ui-view></ui-view>
         </div>
     </div>
 
