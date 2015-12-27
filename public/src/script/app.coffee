@@ -44,10 +44,16 @@ module.controller 'mainController', ($scope, $state, ChatSocketManager) ->
 
   ChatSocketManager.onUserJoin (data) ->
     console.log("User joined: #{data.user}")
+    $scope.chat.roomList[$scope.chat.activeRoom].messages.push({
+      body: "User #{data.user} joined the conversation"
+    })
     $scope.chat.onlineUsers.push(data.user)
 
   ChatSocketManager.onUserLeave (data) ->
     console.log("User leave: #{data.user}")
+    $scope.chat.roomList[$scope.chat.activeRoom].messages.push({
+      body: "User #{data.user} left the conversation"
+    })
     $scope.chat.onlineUsers.splice($scope.chat.onlineUsers.indexOf(data.user), 1)
 
   # Dummy data

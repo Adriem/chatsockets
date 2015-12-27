@@ -14,8 +14,8 @@
         </div>
         <div id="chat-container">
             <span ng-repeat="message in chat.roomList[chat.activeRoom].messages"
-                    ng-class="{ 'own-message': message.owned, sending: message.waitingAck }">
-                <strong>{{ message.author }} said:</strong><br>
+                    ng-class="{ 'own-message': message.owned, sending: message.waitingAck, 'system-message': !message.author }">
+                <strong ng-if="message.author">{{ message.author }} said:<br></strong>
                 {{ message.body }}
             </span>
         </div>

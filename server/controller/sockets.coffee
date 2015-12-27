@@ -12,7 +12,8 @@ messages = []
 configure = (server) ->
 
   # Launch socket.io and set up to call disconnect event on browser unload
-  io = socketIO(server, { 'sync disconnect on unload': true })
+  # io = socketIO(server, { 'sync disconnect on unload': true })
+  io = socketIO(server)
 
   io.on 'connection', (socket) ->
 
@@ -31,7 +32,7 @@ configure = (server) ->
     socket.on 'disconnect', () ->
       console.log("User leaved: #{username}")
       users.splice(users.indexOf(username), 1)
-      socket.emit('USER_LEAVE', { user: username })
+      socket.broadcast.emit('USER_LEAVE', { user: username })
 
     socket.on 'MESSAGE_SENT', (data, ackCallback) ->
       data.author = username
