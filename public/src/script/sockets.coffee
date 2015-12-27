@@ -25,7 +25,7 @@ module.factory 'Socket', ($rootScope) ->
       args = arguments
       $rootScope.$apply( () -> callback.apply(socket, args) )
 
-  # Expose factory methods
+  # Public interface
   return {
     on: subscribe
     emit: publish
@@ -34,18 +34,22 @@ module.factory 'Socket', ($rootScope) ->
 
 module.service 'ChatSocketManager', (Socket) ->
 
-  Socket.on 'news', (data) ->
-    console.log(data)
-    Socket.emit('other event', { my: 'data' })
+  # Add a callback to be called on connection established
+  onConnectionEstablished: (callback) ->
+    Socket.on('CONNECTION_ESTABLISHED', callback)
 
-  onMessageReceived = (callback) ->
+  # Add a callback for received messages
+  onMessageReceived: (callback) ->
     Socket.on('MESSAGE_RECEIVED', callback)
 
-  sendMessage = (message, callback) ->
+  # Send a message
+  sendMessage: (message, callback) ->
     Socket.emit('MESSAGE_SENT', message, callback)
 
-  return {
-    onMessageReceived : onMessageReceived
-    sendMessage       : sendMessage
-  }
+  # Add a callback for user connections
+  onUserJoin: (callback) ->
+    Socket.on('USER_JOIN', callback)
 
+  # Add a callback for user disconnections
+  onUserLeave: (callback) ->
+    Socket.on('USER_LEAVE', callback)

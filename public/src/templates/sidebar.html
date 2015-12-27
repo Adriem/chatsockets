@@ -19,7 +19,7 @@
     <!-- ROOM LIST -->
     <li class="sidebar-separator"><span>Active rooms</span></li>
 
-    <li ng-repeat="room in roomList track by $index">
+    <li ng-repeat="room in chat.roomList track by $index">
         <a ng-click="changeRoom($index)">{{ room.name }}
             <span ng-if="room.unreads" class="badge">
                 {{ room.unreads }}
@@ -27,11 +27,16 @@
         </a>
     </li>
 
-    <li class="sidebar-btn">
-        <a href="#"><i class="fa fa-plus-circle"></i> New room</a>
-    </li>
+    <!-- TODO -->
+    <!-- <li class="sidebar-btn"> -->
+        <!-- <a href="#"><i class="fa fa-plus-circle"></i> New room</a> -->
+    <!-- </li> -->
 
     <!-- ONLINE USERS -->
     <li class="sidebar-separator"><span>Online users</span></li>
-    <li ng-repeat="user in onlineUsers"><span>{{ user }}</span></li>
+    <li ng-repeat="user in chat.onlineUsers"><span>{{ user }}</span></li>
+    <li class="nickname-notice"><span>
+        You are logged as {{ chat.username }}. Reload the page
+        to change your nickname.
+    </span></li>
 </ul>

@@ -3,7 +3,7 @@
         <div class="navbar navbar-default title">
             <div class="navbar-brand">
                 <span class="hidden-xs">Messages </span>
-                @{{ roomList[activeRoom].name }}
+                @{{ chat.roomList[chat.activeRoom].name }}
             </div>
             <div class="navbar-right">
                 <a href="#" class="navbar-link hidden-xs">Leave room</a>
@@ -13,19 +13,19 @@
             </div>
         </div>
         <div id="chat-container">
-            <span ng-repeat="message in roomList[activeRoom].messages">
+            <span ng-repeat="message in chat.roomList[chat.activeRoom].messages"
+                    ng-class="{ 'own-message': message.owned, sending: message.waitingAck }">
                 <strong>{{ message.author }} said:</strong><br>
                 {{ message.body }}
             </span>
         </div>
-        <div id="input-container">
-            <div class="input-group">
-                <input type="text" class="form-control"
+        <form id="input-container" ng-submit="sendMessage()">
+            <div class="form-group"><div class="input-group">
+                <input type="text" class="form-control" ng-model="chat.message"
                         placeholder="Type a message...">
                 <span class="input-group-btn">
-                    <button class="btn btn-danger"
-                            type="button">Send!</button>
+                    <button class="btn btn-danger" type="submit">Send!</button>
                 </span>
-            </div>
-        </div>
+            </div></div>
+        </form>
 </div></div>

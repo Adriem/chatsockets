@@ -25,35 +25,54 @@ module.directive 'sidebar', ($location) ->
 
 module.controller 'mainController', ($scope, $state, ChatSocketManager) ->
 
-  $scope.activeRoom  = 0
-  $scope.roomList    = []
-  $scope.onlineUsers = []
+  $scope.chat =
+    message     : null
+    activeRoom  : 0
+    roomList    : []
+    username    : null
+    onlineUsers : []
+
+  ChatSocketManager.onConnectionEstablished (data) ->
+    console.log(data)
+    $scope.chat.username = data.username
+    $scope.chat.onlineUsers = data.users
+    $scope.chat.roomList[$scope.chat.activeRoom].messages = data.history
 
   ChatSocketManager.onMessageReceived (data) ->
     console.log(data)
-    $scope.roomList[$scope.activeRoom].messages.push(data)
-    return null
+    $scope.chat.roomList[$scope.chat.activeRoom].messages.push(data)
 
-  room = {
-    name: "AngularJS"
-    unreads: 5
+  ChatSocketManager.onUserJoin (data) ->
+    console.log("User joined: #{data.user}")
+    $scope.chat.onlineUsers.push(data.user)
+
+  ChatSocketManager.onUserLeave (data) ->
+    console.log("User leave: #{data.user}")
+    $scope.chat.onlineUsers.splice($scope.chat.onlineUsers.indexOf(data.user), 1)
+
+  # Dummy data
+  $scope.chat.roomList.push({
+    name: "socket.io rulez!"
+    unreads: 0
     messages : []
-  }
-  room.messages.push({
-    author: 'John-Doe'
-    date: i
-    body: """
-      Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit. Aspernatur mollitia maxime facere quae cumque.
-    """
-  }) for i in [0...15]
-  $scope.roomList.push(room) for i in [0...3]
-  $scope.onlineUsers.push('User ' + i) for i in [0...5]
+  }) #for i in [0...3]
 
   $scope.changeRoom = (targetRoom) ->
-    $scope.activeRoom = targetRoom
+    $scope.chat.activeRoom = targetRoom
     $state.go('chat')
 
-  $scope.sendMessage = (message) -> #TODO
-
-  return null
+  $scope.sendMessage = () ->
+    message =
+      body       : $scope.chat.message
+      author     : 'You'
+      owned      : true
+      waitingAck : true
+      # date       : Date.now
+    console.log(message)
+    $scope.chat.message = null
+    messageIndex = $scope.chat.roomList[$scope.chat.activeRoom]
+      .messages.push(message) - 1
+    ChatSocketManager.sendMessage message, () ->
+      console.log('Message acquired!!')
+      $scope.chat.roomList[$scope.chat.activeRoom]
+        .messages[messageIndex].waitingAck = false
