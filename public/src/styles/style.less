@@ -24,7 +24,7 @@ html, body {
     float: left;
     border: none;
     margin-right: -10px;
-    display: block !important; // Comment this for hiding menu button on big screens
+    /* display: block !important; // Comment this for hiding menu button on big screens */
     &:hover, &:focus { background-color: none !important; }
 }
 
@@ -176,3 +176,25 @@ html, body {
     }
 }
 
+/* OVERRIDE SIMPLE-SIDEBAR FOR THE SIDEBAR TO BE ALWAYS OPEN ON BIG SCREENS */
+@media(min-width: 768px) {
+    #wrapper {
+        padding-left: 250px !important;
+    }
+    #wrapper.toggled {
+        padding-left: 250px !important;
+    }
+    #sidebar-wrapper {
+        width: 250px !important;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px !important;
+    }
+    #page-content-wrapper {
+        position: relative !important;
+    }
+    #wrapper.toggled #page-content-wrapper {
+        position: relative !important;
+        margin-right: 0;
+    }
+}
