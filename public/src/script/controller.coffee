@@ -12,8 +12,9 @@ module = angular.module 'ChatSockets'  # Retrieve module
 module.controller 'mainController', ($scope, $state, $location, ChatSocketManager) ->
 
   $scope.input =
-    message  : null  # Content of the message input
-    username : null  # Given username
+    toggled  : false  # Hide sidebar
+    message  : null   # Content of the message input
+    username : null   # Given username
 
   $scope.chat =
     messages     : []  # Chat history

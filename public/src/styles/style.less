@@ -20,8 +20,12 @@ html, body {
     padding: 0;
 }
 
-#sidebar-brand {
-    font-size: @headerFont-lg;
+.navbar-toggle {
+    float: left;
+    border: none;
+    margin-right: -10px;
+    display: block !important; // Comment this for hiding menu button on big screens
+    &:hover, &:focus { background-color: none !important; }
 }
 
 #main-container {
@@ -106,6 +110,11 @@ html, body {
         padding: 6px;
     }
 }
+
+#sidebar-brand {
+    font-size: @headerFont-lg;
+}
+
 #sidebar-wrapper {
     background-color: @sidebarColor;
     overflow-x: hidden;

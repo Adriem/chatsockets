@@ -26,7 +26,7 @@
 </head>
 <body ng-app="ChatSockets" ng-controller="mainController">
 
-    <div id="wrapper">
+    <div id="wrapper" ng-class="{ toggled: input.toggled }">
         <div id="sidebar-wrapper">
             <sidebar></sidebar>
         </div>

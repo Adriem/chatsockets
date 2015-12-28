@@ -2,9 +2,16 @@
     <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
 
         <!-- TITLE -->
-        <div class="navbar navbar-default title"> <div class="navbar-brand">
-                <span class="hidden-xs">Messages </span>
-        </div> </div>
+        <div class="navbar navbar-default title">
+            <button type="button" class="navbar-toggle collapsed"
+                    ng-click="input.toggled = !input.toggled" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">Messages</div>
+        </div>
 
         <!-- CHAT WINDOW -->
         <div id="chat-container">
