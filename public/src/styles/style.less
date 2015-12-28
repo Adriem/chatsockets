@@ -2,7 +2,6 @@
 @borderColor: #ddd;
 @bgColor: #FFFFFF;
 
-
 // Header dimmensions
 @headerHeight-lg: 72px;
 @headerFont-lg: 26pt;
@@ -29,7 +28,6 @@ html, body {
     height: 100vh;
     width: 100%;
     padding: 0;
-    /* background-color: @bgColor; [> debug <] */
     .wrapper {
         box-sizing: border-box;
         height: 100%;
@@ -45,13 +43,23 @@ html, body {
         width: 100%;
         overflow: auto;
         padding: 0 10px;
-        span {
+        .message {
+            font-size: 12pt;
             border-radius: 4px;
             display: block;
             width: 100%;
             margin: 10px 0 0 0;
             padding: 15px;
             background-color: #eaebff;
+            .message-author {
+                font-size: 10pt;
+                font-weight: bold;
+            }
+            .message-date {
+                font-size: 9pt;
+                font-weight: bold;
+                font-style: italic;
+            }
         }
         .own-message {
             background-color: #eaffeb;
@@ -101,17 +109,9 @@ html, body {
 #sidebar-wrapper {
     background-color: @sidebarColor;
     overflow-x: hidden;
-    /* .nav-section { */
-        /* text-indent: 0 !important; */
-        /* text-align: center !important; */
-    /* } */
     i {
         text-indent: 0 !important;
         margin-right: 5px !important;
-        /* &.fa-github, &.fa-info-circle, &.fa-code { */
-        /* &.fa { */
-            /* font-size: 12pt; */
-        /* } */
     }
     .badge {
         text-indent: 0 !important;
@@ -129,10 +129,8 @@ html, body {
         }
     }
     .sidebar-separator {
-        /* margin-top: 15px; */
         padding-top: 20px;
         padding-bottom: 5px;
-        /* border-bottom: 1px solid #b9bbc0; */
         border-bottom: 1px solid #595b60;
         line-height: 1.5 !important;
         span {
@@ -142,13 +140,9 @@ html, body {
         }
     }
     .nickname-notice {
-        /* margin-top: 15px; */
         text-indent: 0 !important;
-        padding: 20px;
+        padding: 5px 20px 20px;
         text-align: center;
-        /* padding-bottom: 5px; */
-        /* border-bottom: 1px solid #b9bbc0; */
-        /* border-bottom: 1px solid #595b60; */
         line-height: 1.5 !important;
         span {
             color: #595b60;

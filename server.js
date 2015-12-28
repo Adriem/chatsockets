@@ -1,14 +1,13 @@
 // =============================================================================
-//  This file is the entry point for the application
+//  This file is the entry point for the whole application.
 // =============================================================================
 
 require('coffee-script/register'); //Enable coffeescript requiring files
 
 var readline = require('readline');
 
-var server      = require('./server/index');
-var port        = process.env.PORT || 3000;
-var environment = process.env.NODE_ENV || 'dist'
+var server = require('./server/index');
+var port   = process.env.PORT || 3000;
 
 // If on windows, emit SIGINT on ^C from stdin, watch
 // http://stackoverflow.com/a/14861513/3376793 for more info
@@ -28,6 +27,6 @@ process.on('SIGINT', function() {
 });
 
 // Start server
-server.start(environment, port);
+server.start(port);
 console.log("Something beautiful is happening on port " + port);
 

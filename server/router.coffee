@@ -9,7 +9,7 @@ path    = require 'path'    # Path handler
 
 # Set up configuration
 environment = process.env.NODE_ENV
-staticPath  = path.normalize(path.join(__dirname + "../../../" + "public/dist"))
+staticPath  = path.normalize(path.join(__dirname + "../../" + "public/dist"))
 
 # Express configuration (order does matter)
 router = express()

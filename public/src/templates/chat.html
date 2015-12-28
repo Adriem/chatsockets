@@ -1,31 +1,32 @@
 <div id="main-container" class="container-fluid">
     <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
-        <div class="navbar navbar-default title">
-            <div class="navbar-brand">
+
+        <!-- TITLE -->
+        <div class="navbar navbar-default title"> <div class="navbar-brand">
                 <span class="hidden-xs">Messages </span>
-                @{{ chat.roomList[chat.activeRoom].name }}
-            </div>
-            <div class="navbar-right">
-                <a href="#" class="navbar-link hidden-xs">Leave room</a>
-                <a href="#" class="navbar-link visible-xs text-right">
-                    <i class="fa fa-eye-slash"></i>
-                </a>
-            </div>
-        </div>
+        </div> </div>
+
+        <!-- CHAT WINDOW -->
         <div id="chat-container">
-            <span ng-repeat="message in chat.roomList[chat.activeRoom].messages"
-                    ng-class="{ 'own-message': message.owned, sending: message.waitingAck, 'system-message': !message.author }">
-                <strong ng-if="message.author">{{ message.author }} said:<br></strong>
+            <span ng-repeat="message in chat.messages | orderBy : 'date'"
+                    ng-class="{ message: true, 'own-message': message.owned, sending: message.waitingAck, 'system-message': !message.author }">
+                <span class="message-author" ng-if="message.author">
+                    {{ message.author }} said:
+                </span>
+                <br ng-if="message.author">
                 {{ message.body }}
             </span>
         </div>
+
+        <!-- MESSAGE BOX -->
         <form id="input-container" ng-submit="sendMessage()">
             <div class="form-group"><div class="input-group">
-                <input type="text" class="form-control" ng-model="chat.message"
+                <input type="text" class="form-control" ng-model="input.message"
                         placeholder="Type a message...">
                 <span class="input-group-btn">
                     <button class="btn btn-danger" type="submit">Send!</button>
                 </span>
             </div></div>
         </form>
+
 </div></div>

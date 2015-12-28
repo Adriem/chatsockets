@@ -1,11 +1,13 @@
 # ==============================================================================
-#  This file defines the angular service for socket.io. and the angular service
-#  that will handle ChatSockets application protocol over socket.io
+#  This file defines some AngularJS providers to handle socket.io on the client
+#  within AngularJS
 # ==============================================================================
 
 module = angular.module 'ChatSockets'  # Retrieve module
 
-
+# ------------------------------------------------------------------------------
+#  AngularJS provider for socket.io that wraps socket.io.js within Angular.
+# ------------------------------------------------------------------------------
 module.factory 'Socket', ($rootScope) ->
 
   # Connect to socket.io when loaded
@@ -31,7 +33,10 @@ module.factory 'Socket', ($rootScope) ->
     emit: publish
   }
 
-
+# ------------------------------------------------------------------------------
+#  AngularJS service that encapsulates ChatSockets application protocol
+#  over socket.io through the service defined previously.
+# ------------------------------------------------------------------------------
 module.service 'ChatSocketManager', (Socket) ->
 
   # Add a callback to be called on connection established

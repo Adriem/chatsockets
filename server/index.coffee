@@ -4,15 +4,15 @@
 #  connection and the socket.io controller.
 # ==============================================================================
 
-http     = require 'http'            # Node HTTP library
+http = require 'http'  # Node HTTP library
 
-config  = require './config'              # Configuration file
-router  = require './controller/router'   # Route manager middleware
-sockets = require './controller/sockets'  # socket.io manager
+config  = require './config'   # Configuration file
+router  = require './router'   # Route manager middleware
+sockets = require './sockets'  # socket.io manager
 
 serverInstance = null  # Keep server instance in order to be able to close it later
 
-start = (environment, port) ->
+start = (port) ->
   server         = http.Server(router)  # Create server
   io             = sockets(server)      # Run socket.io
   serverInstance = server.listen(port)  # Start listening
