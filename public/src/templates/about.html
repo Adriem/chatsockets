@@ -1,14 +1,84 @@
 <div id="main-container" class="container-fluid">
     <div class="wrapper col-xs-11 col-sm-11 col-md-10 col-lg-8">
+
+        <!-- TITLE -->
         <div class="navbar navbar-default title">
+            <button type="button" class="navbar-toggle collapsed"
+                    ng-click="input.toggled = !input.toggled"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <div class="navbar-brand">About</div>
         </div>
-        <p>
-            This is a demo project to experiment with WebSockets technology
-            over the MEAN stack. It makes use of
-            <a target="_blank" href="http://socket.io">socket.io</a>,
-            a library that simplifies the use of WebSockets over
-            <a href="http://nodejs.org">node.js</a>.
-            I hope you find it interesting! 
-        </p>
+
+        <div class="col-sm-8">
+
+            <!-- <h4>About ChatSockets</h4> -->
+            <div class="page-header first-header"><h4>About ChatSockets</h4></div>
+            <p class="text-justify">
+                This is a demo project to experiment with WebSockets technology
+                over the MEAN stack. It makes use of
+                <a target="_blank" href="http://socket.io">socket.io</a>,
+                a library that simplifies the use of WebSockets over
+                <a href="http://nodejs.org" target_="_blank">node.js</a>
+                and the client, which is built with AngularJS. Please, keep in
+                mind that this project is not meant for real use, so it doesn't
+                offer any security at all.
+            </p>
+            <p class="text-justify">
+                This chat is completely open, so every message sent will be seen
+                by all the connected people. However, messages will not be
+                stored, so once all the people who received a message get
+                disconnected, that message will be completely deleted.
+                There are no user accounts; every user is given a random
+                nickname every time he or she reloads the page.
+            </p>
+            <p class="text-justify">
+                This project was made for learning purposes. Feel
+                free to take a look to <a target="_blank"
+                    href="http://github.com/Adriem/chatsockets"> the code</a>
+                and don't forget to check out <a target="_blank"
+                    href="http://adriem.noip.me">my other projects</a>!
+            </p>
+
+            <div class="page-header"><h4>About the developer</h4></div>
+            <p class="text-justify">
+                My name is Adrián Moreno and I am a Software
+                Engineering student from Zaragoza, a city from North-East Spain
+                who loves software, technology, videogames, DIY stuff, music and
+                beer :)
+            </p>
+            <p class="text-justify">
+                In my spare time I like to develop little projects and mess with
+                DIY stuff. I am very intrested in software development and
+                software architecture, as well as web technologies, programming
+                languages and game development.
+            </p>
+            <div class="text-center media-btns">
+                <h4>Find me on the net!</h4>
+                <div class="btn-group" role="group">
+                    <a type="button" class="btn btn-default btn-homepg"
+                            target="_blank" href="http://adriem.noip.me">
+                        <i class="fa fa-fw fa-lg fa-home"></i> My homepage
+                    </a>
+                    <a type="button" class="btn btn-danger btn-mail"
+                                href="mailto:admoreno@outlook.com">
+                        <i class="fa fa-fw fa-envelope"></i>
+                    </a>
+                    <button type="button"
+                            class="btn btn-primary btn-twitter" target="_blank"
+                            href="http://twitter.com/ClockworkAdriem">
+                        <i class="fa fa-fw fa-lg fa-twitter"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-github"
+                            target="_blank" href="http://github.com/Adriem">
+                        <i class="fa fa-fw fa-lg fa-github"></i>
+                    </button>
+                </div>
+            </div>
+                
+        </div>
 </div></div>

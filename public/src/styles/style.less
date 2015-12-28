@@ -24,8 +24,11 @@ html, body {
     float: left;
     border: none;
     margin-right: -10px;
-    /* display: block !important; // Comment this for hiding menu button on big screens */
+    /* display: block !important; // Uncomment this to whoe menu button on big screens */
     &:hover, &:focus { background-color: none !important; }
+}
+.navbar {
+    margin-bottom: 0px;
 }
 
 #main-container {
@@ -196,5 +199,54 @@ html, body {
     #wrapper.toggled #page-content-wrapper {
         position: relative !important;
         margin-right: 0;
+    }
+}
+
+.page-header {
+    padding-bottom: 0;
+    margin: 30px 0 15px;
+    &.first-header { margin-top: 0; }
+}
+.media-btns {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    button, a {
+        padding: 10px 15px;
+        border-color: #ffffff;
+        border-radius: 0;
+        /* min-width: 36px !important; */
+        i { width: 24px !important; }
+    }
+    .btn-homepg {
+        color: #ffffff;
+        background-color: #8f7864;
+        &:hover  { background-color: #9f8874; border-color: #ffffff; }
+        &:focus  { background-color: #7f6854; border-color: #ffffff; }
+        &:active { background-color: #87705b; border-color: #ffffff; }
+    }
+    .btn-mail{
+        color: #ffffff;
+        background-color: #dc4e41;
+        &:hover  { background-color: #ec5e51; border-color: #ffffff; }
+        &:focus  { background-color: #cc3e31; border-color: #ffffff; }
+        &:active { background-color: #cc3e31; border-color: #ffffff; }
+    }
+    .btn-twitter{
+        color: #ffffff;
+        background-color: #55acee;
+        &:hover  { background-color: #65bcfe; border-color: #ffffff; }
+        &:focus  { background-color: #459cde; border-color: #ffffff; }
+        &:active { background-color: #cc3e31; border-color: #ffffff; }
+    }
+    .btn-github {
+        color: #ffffff;
+        /* background-color: #666666; */
+        /* &:hover  { background-color: #65bcfe; border-color: #ffffff; } */
+        /* &:focus  { background-color: #459cde; border-color: #ffffff; } */
+        /* &:active { background-color: #cc3e31; border-color: #ffffff; } */
+        background-color: #4183c4;
+        &:hover  { background-color: #5193d4; border-color: #ffffff; }
+        &:focus  { background-color: #3173b4; border-color: #ffffff; }
+        &:active { background-color: #cc3e31; border-color: #ffffff; }
     }
 }
