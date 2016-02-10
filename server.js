@@ -10,7 +10,7 @@ var readline = require('readline');
 var server = require('./server/index');
 var port   = process.env.PORT || 3000;
 
-// If on windows, emit SIGINT on ^C from stdin, watch
+// If running on windows, emit SIGINT on ^C from stdin, watch
 // http://stackoverflow.com/a/14861513/3376793 for more info
 if (process.platform === 'win32') {
     var lineReader = readline.createInterface({
