@@ -39,7 +39,7 @@ configure = (server) ->
       socket.broadcast.emit('MESSAGE_RECEIVED', data)
       ackCallback(null, data)
 
-    # Set up a listener that unregisters the user when the user disconnects
+    # Set up a listener that unregisters the user when he or she disconnects
     socket.on 'disconnect', () ->
       console.log "#{getDate()} - User leaved: #{username}"
       users.splice(users.indexOf(username), 1)

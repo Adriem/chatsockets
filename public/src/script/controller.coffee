@@ -29,6 +29,12 @@ module.controller 'mainController', ($scope, $state, $location, ChatSocketManage
     true
   )
 
+  # Scroll to bottom everytime the chat log is rendered
+  $scope.$on 'ngRepeat_finished', (evt) ->
+    container = $('#chat-container')
+    height = container[0].scrollHeight
+    container.scrollTop(height)
+
   # Set up listeners for ChatSocket manager
   ChatSocketManager.onConnectionEstablished (data) ->
     $scope.input.username = data.username
@@ -65,3 +71,14 @@ module.controller 'mainController', ($scope, $state, $location, ChatSocketManage
     ChatSocketManager.sendMessage message, (error, data) ->
       $scope.chat.messages[messageIndex].waitingAck = false
       $scope.chat.messages[messageIndex].date = data.date
+
+# ------------------------------------------------------------------------------
+#  Create a directive that will notificate us when the last element of the
+#  chat container is renderized, as seen on: 
+#  http://stackoverflow.com/questions/15207788/calling-a-function-when-ng-repeat-has-finished
+# ------------------------------------------------------------------------------
+module.directive 'onFinishRender', ($timeout) ->
+  restrict: 'A'
+  link: (scope, element, attr) ->
+    if scope.$last
+      $timeout -> scope.$emit attr.onFinishRender || 'ngRepeatFinished'

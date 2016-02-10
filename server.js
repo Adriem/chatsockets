@@ -2,6 +2,7 @@
 //  This file is the entry point for the whole application.
 // =============================================================================
 
+"use strict";
 require('coffee-script/register'); //Enable coffeescript requiring files
 
 var readline = require('readline');
@@ -29,4 +30,3 @@ process.on('SIGINT', function() {
 // Start server
 server.start(port);
 console.log("Something beautiful is happening on port " + port);
-

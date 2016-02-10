@@ -15,7 +15,7 @@
 
         <!-- CHAT WINDOW -->
         <div id="chat-container">
-            <span ng-repeat="message in chat.messages | orderBy : 'date'"
+            <span ng-repeat="message in chat.messages | orderBy : 'date'" on-finish-render="ngRepeat_finished"
                     ng-class="{ message: true, 'own-message': message.owned, sending: message.waitingAck, 'system-message': !message.author }">
                 <span class="message-author" ng-if="message.author">
                     {{ message.author }} said:
