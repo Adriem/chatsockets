@@ -4,7 +4,7 @@
   "description": "Simple chat application using websockets over MEAN",
   "main": "server.js",
   "scripts": {
-    "test": "gulp && jasmine-node test --captureExceptions"
+    "test": "echo 'No tests implemented'"
   },
   "repository": {
     "type": "git",
