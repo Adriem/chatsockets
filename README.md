@@ -11,13 +11,14 @@ Run this project!
 
 In order to run this project you have to have installed
 [node.js](http://nodejs.org) and npm. Once you have them, follow these steps:
-1. Clone this repo :D
-2. Open a terminal on the root folder of this project.
-3. Run `npm install`. This must be done the first time only, in order to install
-the dependencies of the project.
-4. Run `gulp` in order to compile the front-end
-5. Run `npm start` in order to launch the server on port 3000. Alternatively,
-you can also use `node server.js`.
+
+    1. Clone this repo :D
+    2. Open a terminal on the root folder of this project.
+    3. Run `npm install`. This must be done the first time only, in order to
+    install the dependencies of the project.
+    4. Run `gulp` in order to compile the front-end
+    5. Run `npm start` in order to launch the server on port 3000.
+    Alternatively, you can also use `node server.js`.
 
 How does Chatsockets work?
 --------------------------
