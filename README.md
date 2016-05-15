@@ -45,6 +45,6 @@ Any suggestions?
 If you have any suggestions, find any bugs or just want to tell me how this
 wonderful project solved all your life's problems, drop me an email at
 [admoreno@outlook.com](mailto:admoreno@outlook.com). If you prefer, you can also
-open an issue on this repo. I will response any of them as soon as I can.
+open an issue on this repo. I will respond any of them as soon as I can.
 
 **Have fun with this project!**
